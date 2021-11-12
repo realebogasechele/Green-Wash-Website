@@ -6,7 +6,7 @@ import TextFeature from 'components/text-feature';
 import ModalVideo from 'react-modal-video';
 import { IoIosPlay } from 'react-icons/io';
 
-import ServiceThumb from 'assets/service-thumb.png';
+import img1 from 'assets/img1.png';
 import shapePattern1 from 'assets/green-pattern1.png';
 
 import Smart from 'assets/services/smart.svg';
@@ -54,7 +54,7 @@ export default function ServiceSection() {
     <section sx={{variant: 'section.services'}}>
       <Container sx={styles.containerBox}>
         <Box sx={styles.thumbnail}>
-          <Image src={ServiceThumb} alt='thumbnail'/>
+          <Image src={img1} alt='thumbnail' sx={styles.img}/>
           <Button
           sx={styles.videoBtn}
           onClick={handleClick}
@@ -73,7 +73,6 @@ export default function ServiceSection() {
           <Grid sx={styles.grid}>
             {data.packages.map((pack) => (
               <Box sx={styles.card} key={pack.id}>
-                <Image src={pack.imgSrc} alt={pack.altText} sx={styles.icon}/>
                 <Box sx={styles.wrapper}>
                   <Heading sx={styles.wrapper.title}>
                     {pack.title}
@@ -110,6 +109,10 @@ const playPluse = keyframes`
 `;
 
 const styles = {
+  img:{
+    borderRadius: '2%',
+    boxShadow: '5px 5px 10px #888888',
+  },
   coreFeature: {
     py: [0, null, null, 2, null, 7],
     position: 'relative',
@@ -217,7 +220,7 @@ const styles = {
     mt: '-5px',
     title: {
       fontSize: 3,
-      color: 'heading_secondary',
+      color: 'primary',
       lineHeight: 1.4,
       fontWeight: 700,
       mb: [2, null, 3, 2, 3],

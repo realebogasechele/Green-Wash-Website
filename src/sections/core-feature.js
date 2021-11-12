@@ -2,7 +2,7 @@
 import { jsx, Container, Box, Image } from 'theme-ui';
 import TextFeature from 'components/text-feature';
 
-import FeatureThumb from 'assets/core-feature.png';
+import img2 from 'assets/img2.png'
 import shapePattern from 'assets/green-pattern2.png';
 
 const data = {
@@ -24,7 +24,7 @@ export default function About() {
         />
       </Box>
       <Box sx={styles.thumbnail}>
-        <Image src={FeatureThumb} alt="Thumbnail" />
+        <Image src={img2} width='550px'alt="Thumbnail" sx={styles.img}/>
         <Box sx={styles.shapeBox}>
           <Image src={shapePattern} alt="Shape"/>
         </Box>
@@ -35,6 +35,10 @@ export default function About() {
 }
 
 const styles = {
+  img:{
+    borderRadius: '2%',
+    boxShadow: '5px 5px 10px #888888',
+  },
   containerBox: {
     display: 'flex',
     alignItems: 'center',
