@@ -19,7 +19,7 @@ export default function IndexPage() {
   return (
     <ThemeProvider theme={theme}>
         <Layout>
-          <SEO title="The Green Wash" />
+          <SEO title="The Green Wash Website" />
           <Banner />
           <About />
           <ServiceSection />

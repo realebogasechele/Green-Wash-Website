@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { Alert, Box, Button, Grid, Input, Text, Textarea } from "@theme-ui/components";
-import React from "react";
 import SectionHeader from "components/section-header";
 import { validCellNum, validEmail, validName, validRating } from "utility/Regex";
 
