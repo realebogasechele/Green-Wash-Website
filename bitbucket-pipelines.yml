@@ -1,3 +1,11 @@
+definitions:
+  caches:
+    nextcache: .next/cache
+      - step:
+          name: Cache build Data
+          caches:
+            - node
+            - nextcache
 pipelines:
   branches:
     master:
