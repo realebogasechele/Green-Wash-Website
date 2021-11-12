@@ -1,0 +1,9 @@
+pipelines:
+  branches:
+    master:
+      - step:
+          name: Build and Test the Website
+          image: node:16.13.0
+          script:
+            - npm install
+            - npm run build
