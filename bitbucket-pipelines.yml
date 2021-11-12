@@ -6,4 +6,5 @@ pipelines:
           image: node:17.0.1
           script:
             - npm install
+            - npm install next@10
             - npm run build
