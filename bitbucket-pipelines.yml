@@ -1,18 +1,9 @@
-definitions:
-  caches:
-    nextcache: .next/cache
-      - step:
-          name: Cache build Data
-          caches:
-            - node
-            - nextcache
 pipelines:
   branches:
     master:
       - step:
           name: Build and Test the Website
-          image: node:16.13.0
+          image: node:17.0.1
           script:
             - npm install
-            - npm install @emotion/react
-            - npx next build
+            - npm run build
