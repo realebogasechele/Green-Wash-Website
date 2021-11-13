@@ -14,6 +14,7 @@ import Package from '../sections/package';
 import TeamSection from '../sections/team-section';
 import TestimonialCard from '../sections/testimonial';
 import ContactUs from 'sections/contact-us';
+import Gallery from 'sections/gallery';
 
 export default function IndexPage() {
   return (
@@ -26,9 +27,10 @@ export default function IndexPage() {
           <WorkFlow />
           <TeamSection />
           <Package />
+          <Gallery />
           <Feature />
           <ContactUs />
-          <TestimonialCard />
+          {/* <TestimonialCard /> */}
         </Layout>
     </ThemeProvider>
   );

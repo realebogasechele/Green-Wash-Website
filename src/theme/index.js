@@ -91,7 +91,7 @@ export default {
     },
     feature: {
       pt: [-3, null, 0, null, null, 7],
-      pb: [8, null, 9, null, null, 10, null, '170px'],
+      pb: [8, null, 9, null, null, 6, null, '170px'],
     },
     news: {
       pb: [8, null, 9, null, null, 10, null, '170px'],
@@ -108,11 +108,16 @@ export default {
     },
     services: {
       pt: [4, null, 8, '70px', null, 8, null, '145px'],
-      pb: ['90px', null, 9, null, null, 10, null, '150px'],
+      pb: ['90px', null, 7, null, null, null, null, '150px'],
+    },
+    gallery:{
+      pt: [8, null, 7, '0px', null, 7, null, '145px'],
+      pb: ['90px', null, 5, null, null, 5, null, '190px'],
+      overflow: 'hidden',
     },
     pricing: {
       pt: [4, null, 9, null, null, 6, 7, '190px'],
-      pb: ['90px', null, 9, null, null, 10, null, '180px'],
+      pb: ['90px', null, 9, null, null, 6, null, '180px'],
     },
     contactUs: {
       pt: [5, null, 9, null, null, 6, 7, '190px'],

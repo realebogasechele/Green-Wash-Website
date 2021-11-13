@@ -1,8 +1,22 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { Alert, Box, Button, Grid, Input, Text, Textarea } from "@theme-ui/components";
+import {
+  Alert,
+  Box,
+  Button,
+  Grid,
+  Input,
+  Text,
+  Textarea,
+} from "@theme-ui/components";
 import SectionHeader from "components/section-header";
-import { validCellNum, validEmail, validName, validRating } from "utility/Regex";
+import {
+  validCellNum,
+  validEmail,
+  validName,
+  validRating,
+} from "utility/Regex";
+import Connection from "utility/Connection";
 
 export default function ContactUs() {
   const queryHandler = (e) => {
@@ -13,18 +27,51 @@ export default function ContactUs() {
     var cellNo = document.getElementById("cellNo").value;
     var query = document.getElementById("query").value;
 
-    if(name === '' || surname === '' || email === '' || cellNo === '' || query === ''){
-      alert('Fields must not be empty.');
-    }else if(!validName.test(name)){
-      alert('Invalid Name.');
-    }else if(!validName.test(surname)){
-      alert('Invalid Surname.');
-    }else if(!validEmail.test(email)){
-      alert('Invalid Email.');
-    }else if(!validCellNum.test(cellNo)){
-      alert('Invalid Cell Number');
-    }else{
-      alert('Valid');
+    if (
+      name === "" ||
+      surname === "" ||
+      email === "" ||
+      cellNo === "" ||
+      query === ""
+    ) {
+      alert("Fields must not be empty.");
+    } else if (!validName.test(name)) {
+      alert("Invalid Name.");
+    } else if (!validName.test(surname)) {
+      alert("Invalid Surname.");
+    } else if (!validEmail.test(email)) {
+      alert("Invalid Email.");
+    } else if (!validCellNum.test(cellNo)) {
+      alert("Invalid Cell Number");
+    } else {
+      let url = "query/add";
+      var payload = {
+        name: name,
+        surname: surname,
+        email: email,
+        cellNo: cellNo,
+        query: query,
+      };
+      Connection.processPostRequest(payload, url, (response) =>
+        mapQueryResponse(response)
+      );
+    }
+  };
+  const mapQueryResponse = (response) => {
+    if (response.type === "error") {
+      document.getElementById("name").value = "";
+      document.getElementById("surname").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("cellNo").value = "";
+      document.getElementById("query").value = "";
+      alert(response.data.data);
+    } else {
+      document.getElementById("name").value = "";
+      document.getElementById("surname").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("cellNo").value = "";
+      document.getElementById("query").value = "";
+      alert(response.data.data);
     }
   };
   const testimonialHandler = (e) => {
@@ -32,25 +79,99 @@ export default function ContactUs() {
     var name = document.getElementById("name2").value;
     var surname = document.getElementById("surname2").value;
     var rating = document.getElementById("rating").value;
+    var cellNum = document.getElementById("cellNum").value;
     var handle = document.getElementById("handle").value;
     var title = document.getElementById("title").value;
     var description = document.getElementById("description").value;
 
-    if (name === '' || surname === '' || cellNo === '' || title === '' || description === ''){
-      alert('Fields must not be empty.');
-    }else if(!validName.test(name)){
-      alert('Invalid Name.');
-    }else if(!validName.test(surname)){
-      alert('Invalid Surname.');
-    }else if(!validRating.test(rating)){
-      alert('Invalid Rating only numbers between 1 - 5 allowed.')
-    }else if(!validName.test(title)){
-      alert('Invalid Title.');
-    }else if(!validName.test(description)){
-      alert('Invalid Description.')
+    if (
+      name === "" ||
+      surname === "" ||
+      rating === "" ||
+      cellNo === "" ||
+      title === "" ||
+      description === ""
+    ) {
+      alert("Fields must not be empty.");
+    } else if (handle === '') {
+      if (!validName.test(name)) {
+        alert("Invalid Name.");
+      } else if (!validName.test(surname)) {
+        alert("Invalid Surname.");
+      } else if (!validCellNum.test(cellNum)) {
+        alert("Invalid Cell Number.");
+      } else if (!validRating.test(rating)) {
+        alert("Invalid Rating only numbers between 1 - 5 allowed.");
+      } else if (!validName.test(title)) {
+        alert("Invalid Title.");
+      } else if (!validName.test(description)) {
+        alert("Invalid Description.");
+      } else {
+        let url = 'testimonial/add'
+        var payload = {
+          name: name,
+          surname: surname,
+          socialHandle: handle,
+          rating: rating,
+          cellNum: cellNum,
+          title: title,
+          description: description,
+        }
+
+        Connection.processPostRequest(payload, url, (response)=> mapResponse(response));
+      }
+    }else{
+      if (!validName.test(name)) {
+        alert("Invalid Name.");
+      }else if(!validName.test(handle)){
+        alert('Exclude any special characters from Handle')
+      } else if (!validName.test(surname)) {
+        alert("Invalid Surname.");
+      } else if (!validCellNum.test(cellNum)) {
+        alert("Invalid Cell Number.");
+      } else if (!validRating.test(rating)) {
+        alert("Invalid Rating only numbers between 1 - 5 allowed.");
+      } else if (!validName.test(title)) {
+        alert("Invalid Title.");
+      } else if (!validName.test(description)) {
+        alert("Invalid Description.");
+      } else {
+        let url = 'testimonial/add'
+        var payload = {
+          name: name,
+          surname: surname,
+          socialHandle: handle,
+          rating: rating,
+          cellNum: cellNum,
+          title: title,
+          description: description,
+        }
+
+        Connection.processPostRequest(payload, url, (response)=> mapResponse(response));
+      }
+    }
+  };
+
+  const mapResponse = (response) => {
+    if(response.type === 'error'){
+      document.getElementById("name2").value = '';
+      document.getElementById("surname2").value = '';
+      document.getElementById("rating").value = '';
+      document.getElementById("cellNum").value = '';
+      document.getElementById("handle").value = '';
+      document.getElementById("title").value = '';
+      document.getElementById("description").value = '';
+      alert(response.data.data);
     }
     else{
-      alert('Valid');
+      document.getElementById("name2").value = '';
+      document.getElementById("surname2").value = '';
+      document.getElementById("rating").value = '';
+      document.getElementById("cellNum").value = '';
+      document.getElementById("handle").value = '';
+      document.getElementById("title").value = '';
+      document.getElementById("description").value = '';
+      alert(response.data.data);
     }
   };
 
@@ -70,12 +191,21 @@ export default function ContactUs() {
           <Input name="email" id="email" placeholder="Email" />
           <Input name="cellNo" id="cellNo" placeholder="Cell Number" />
         </Grid>
-        <Textarea name="query" id='query' placeholder="Query" sx={styles.area} />
-        <Button variant="primary" className={styles.button} onClick={(e) => e.preventDefault(), queryHandler}>
+        <Textarea
+          name="query"
+          id="query"
+          placeholder="Query"
+          sx={styles.area}
+        />
+        <Button
+          variant="primary"
+          className={styles.button}
+          onClick={((e) => e.preventDefault(), queryHandler)}
+        >
           Submit
         </Button>
       </Box>
-      <Box sx={styles.box}>
+      {/* <Box sx={styles.box}>
         <SectionHeader
           slogan="Leave A Review"
           title="Do You Enjoy Using Our Products ?"
@@ -88,10 +218,16 @@ export default function ContactUs() {
             <Input
               name="handle"
               id="handle"
-              placeholder="Social Media Handle (eg. @johndoe)"
+              placeholder="Social Media Handle ('@' symbol)"
             />
-            <Input name="cellNo" id="rating" placeholder="Rating" />
+            <Input name="rating" id="rating" placeholder="Rating" />
           </Grid>
+          <Input
+            name="cellNum"
+            id="cellNum"
+            placeholder="Cell Number"
+            sx={styles.area}
+          />
           <Input name="title" id="title" placeholder="Title" sx={styles.area} />
           <Textarea
             name="description"
@@ -99,11 +235,15 @@ export default function ContactUs() {
             placeholder="Description"
             sx={styles.area}
           />
-          <Button variant="primary" type="submit" onClick={(e) => e.preventDefault(), testimonialHandler}>
+          <Button
+            variant="primary"
+            type="submit"
+            onClick={((e) => e.preventDefault(), testimonialHandler)}
+          >
             Submit
           </Button>
         </Box>
-      </Box>
+      </Box> */}
     </section>
   );
 }
@@ -162,8 +302,8 @@ const styles = {
       outline: "none",
     },
   },
-  box:{
-      pt:[7, 5, 6, null, 7],
-      pb:[7, 5, -6, null, -7]
-  }
+  box: {
+    pt: [7, 5, 6, null, 7],
+    pb: [7, 5, -6, null, -7],
+  },
 };

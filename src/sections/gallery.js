@@ -1,87 +1,48 @@
 /** @jsx jsx */
-import { jsx, Container, Heading, Text, Box, Image } from "theme-ui";
+import { Container, Box, Image, Heading } from "@theme-ui/components";
 import SectionHeader from "components/section-header";
-import Rating from "components/rating";
-import ButtonGroup from "components/button-group";
 import Carousel from "react-multi-carousel";
-import fetch from "isomorphic-unfetch";
+import { jsx } from "theme-ui";
 
-import Avatar1 from "assets/testimonial/avatar1.png";
-import Avatar2 from "assets/testimonial/avatar2.png";
-import Avatar3 from "assets/testimonial/avatar3.png";
-import Avatar4 from "assets/testimonial/avatar4.png";
-import Connection from "utility/Connection";
-import { Button } from "@theme-ui/components";
+import img1 from "assets/img1.png";
+import img2 from "assets/img2.png";
+import ButtonGroup from "components/button-group";
 
-const data = [
+const images = [
   {
     id: 1,
-    title: "Modern look & trending design",
-    description:
-      "Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.",
-    avatar: Avatar1,
-    name: "Denny",
-    surname: "Hilguston",
-    designation: "@denny.hil",
-    review: 4,
+    imageSrc: img1,
+    complexName: "complexName",
   },
   {
     id: 2,
-    title: "Design Quality & performance",
-    description:
-      "Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.",
-    avatar: Avatar2,
-    name: "Denny",
-    surname: "Hilguston",
-    designation: "@denny.hil",
-    review: 5,
-  },
-  {
-    id: 3,
-    title: "Layout and organized layers",
-    description:
-      "Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.",
-    avatar: Avatar3,
-    name: "Denny",
-    surname: "Hilguston",
-    designation: "@denny.hil",
-    review: 5,
-  },
-  {
-    id: 4,
-    title: "Modern look & trending design",
-    description:
-      "Get working experience to work with this amazing team & in future want to work together for bright future projects and also make deposit to freelancer.",
-    avatar: Avatar4,
-    name: "Denny",
-    surname: "Hilguston",
-    designation: "",
-    review: 4,
+    imageSrc: img2,
+    complexName: "complexName",
   },
 ];
 
 const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1619 },
-    items: 4,
-    slidesToSlide: 4, // optional, default to 1.
-  },
-  laptop: {
-    breakpoint: { max: 1619, min: 1024 },
-    items: 3,
-    slidesToSlide: 3, // optional, default to 1.
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 640 },
-    items: 2,
-    slidesToSlide: 2, // optional, default to 1.
-  },
-  mobile: {
-    breakpoint: { max: 639, min: 0 },
-    items: 1,
-    slidesToSlide: 1, // optional, default to 1.
-  },
-};
+    desktop: {
+      breakpoint: { max: 3000, min: 1619 },
+      items: 4,
+      slidesToSlide: 4, // optional, default to 1.
+    },
+    laptop: {
+      breakpoint: { max: 1619, min: 1024 },
+      items: 3,
+      slidesToSlide: 3, // optional, default to 1.
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 640 },
+      items: 2,
+      slidesToSlide: 2, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 639, min: 0 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+  };
 
 const carouselParams = {
   additionalTransfrom: 0,
@@ -106,35 +67,24 @@ const carouselParams = {
   slidesToSlide: 1,
 };
 
-function TestimonialCard({ props }) {
+export default function Gallery() {
   return (
-    <section id="testimonial" sx={{ variant: "section.testimonial" }}>
+    <section sx={{ variant: "section.gallery" }} id="gallery">
       <Container css={{ textAlign: "center" }}>
-        <SectionHeader
-          slogan="Testimonials"
-          title="Here Are Some Of Our Satisfied Clients"
-        />
+        <SectionHeader slogan="Gallery" title="Here Are Our Agents At Work" />
       </Container>
       <Box sx={styles.carouselWrapper}>
         <Carousel {...carouselParams}>
-          {data.map((item) => (
+          {images.map((item) => (
             <Box sx={styles.reviewCard} key={item.id}>
-              <Rating rating={item.review} />
-              <Heading as="h3" sx={styles.title}>
-                {item.title}
-              </Heading>
-              <Text sx={styles.description}>{item.description}</Text>
+              <div className="image">
+                <Image src={item.imageSrc} alt="Picture" />
+              </div>
               <div className="card-footer">
-                <div className="image">
-                  <Image src={item.avatar} alt="Avatar" />
-                </div>
                 <div className="reviewer-info">
-                  <Heading as="h4" sx={styles.heading}>
-                    {item.name.concat(" ", item.surname)}
+                  <Heading as="h3" sx={styles.title}>
+                    {item.complexName}
                   </Heading>
-                  {item.designation !== "" && (
-                    <Text sx={styles.designation}>{item.designation}</Text>
-                  )}
                 </div>
               </div>
             </Box>
@@ -144,7 +94,6 @@ function TestimonialCard({ props }) {
     </section>
   );
 }
-export default TestimonialCard;
 
 const styles = {
   carouselWrapper: {

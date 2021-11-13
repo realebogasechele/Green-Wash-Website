@@ -8,15 +8,15 @@ export default [
     label: 'Our Services',
   },
   {
+    path: 'gallery',
+    label: 'Gallery',
+  },
+  {
     path: 'feature',
     label: 'Application Features',
   },
   {
     path: 'contactUs',
     label: 'Contact Us',
-  },
-  {
-    path: 'testimonial',
-    label: 'Testimonials',
   },
 ];
