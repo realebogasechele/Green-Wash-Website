@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default class Connection{
-    static baseUrl = 'http://thegreenwashapi-env.eba-brvvgaku.eu-west-2.elasticbeanstalk.com/web/';
+    static baseUrl = 'https://thegreenwashapi-env.eba-brvvgaku.eu-west-2.elasticbeanstalk.com/web/';
 
     static processGetRequest (requestData, endpoint, callback) {
         let url = this.baseUrl + endpoint;
