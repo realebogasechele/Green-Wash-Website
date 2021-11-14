@@ -12,7 +12,7 @@ const data = [
     id: 1,
     title: 'Create A Booking',
     text:
-      'Client must first sign in witha valid account and creates a booking located in the "Book A Wash" Tab',
+      'Client must first sign in with a valid account and creates a booking located in the "Book A Wash" Tab',
   },
   {
     id: 2,

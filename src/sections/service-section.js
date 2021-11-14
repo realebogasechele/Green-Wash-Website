@@ -29,7 +29,7 @@ const data = {
       altText: 'Step 2',
       title: 'Step 2',
       text:
-        'Exterior wash and polish with silicone tyre treatment, beading treatment, interior clean, dash treatment and air freshener and leather treatment.',
+        'A specially selected microfiber cloth is used to wipe the excess dirt and wax off.',
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ const data = {
       altText: 'Step 3',
       title: 'Step 3',
       text:
-        'Exterior wash and polish with silicone tyre treatment, beading treatment, interior clean, dash treatment and air freshener, leather treatment and waterless engine clean.',
+        'The cleaned surface is buffed with another microfiber cloth leaving it polished, sealed and protected.',
     },
   ],
 };
