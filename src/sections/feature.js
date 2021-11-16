@@ -15,7 +15,7 @@ const data = [
     altText: 'Fast Performance',
     title: 'Fast Performance',
     text:
-      'Let’s just get this out of the way - there will always be a kit version of Edu flow. Paid subscriptions allow us to continue helping learners around the world.',
+      'Using the power of native code, our application delivers a fast and optimal experience that allows all customers of the green wash to enjoy the premium booking experience we have to offer.',
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const data = [
     altText: 'Complex Agents',
     title: 'Complex Agents',
     text:
-      'This means that when making a booking, an agent assigned to that booking can only be found in your complex which allows for a well-maintained system of booking creation',
+      'When making a booking, an agent assigned to that booking can only be found in your complex which allows for a well-maintained system of booking creation',
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const data = [
     altText: 'Complex Exclusivity',
     title: 'Complex Exclusivity',
     text:
-      'Let’s just get this out of the way - There will not be anyone allowed to make bookings if they do not come from a registered complex. This means if your complex is registered with us, you can have premium waterless car wash bookings to your hearts content',
+      'Let us just get this out of the way - There will not be anyone allowed to make bookings if they do not come from a registered complex. This means if your complex is registered with us, you can have premium waterless car wash bookings to your hearts content',
   },
   {
     id: 4,
@@ -39,7 +39,7 @@ const data = [
     altText: 'Customer Support',
     title: 'Customer Support',
     text:
-      'We believe it’s important for everyone to have access to bookings – especially when it comes to premium washes and premium bookings.',
+      'We believe it is important for everyone to have access to bookings – especially when it comes to premium washes and premium bookings.',
   },
 ];
 

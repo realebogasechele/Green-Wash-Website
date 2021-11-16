@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { Container, Box, Heading, Text, Image, Button } from "theme-ui";
-import BannerImg from "assets/banner-thumb.png";
+import BannerImg from "assets/banner-picture.png";
 import ShapeLeft from "assets/green-shape-left.png";
 import ShapeRight from "assets/green-shape-right.png";
 import { FaArrowRight } from "react-icons/fa";
@@ -27,7 +27,7 @@ export default function Banner() {
           </Link>
         </Box>
         <Box sx={styles.banner.imageBox}>
-          <Image src={BannerImg} alt="banner" />
+          <Image src={BannerImg} alt="banner" width={'80%'} sx={styles.banner.imageBox.img}/>
         </Box>
       </Container>
     </section>
@@ -87,10 +87,10 @@ const styles = {
       justifyContent: "center",
       textAlign: "center",
       display: "inline-flex",
-      mb: [0, null, -6, null, null, "-40px", null, -3],
-      img: {
-        position: "relative",
-        height: [245, "auto"],
+      mb: [-1, null, -6, null, null, "40px", null, -3],
+      img:{
+        borderRadius: '6%',
+        boxShadow: '5px 5px 10px #888888',
       },
     },
   },
