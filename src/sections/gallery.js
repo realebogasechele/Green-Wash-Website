@@ -8,7 +8,7 @@ import img1 from "assets/img1.png";
 import img2 from "assets/img2.png";
 import ButtonGroup from "components/button-group";
 
-const images = [
+const agents = [
   {
     id: 1,
     imageSrc: img1,
@@ -71,11 +71,11 @@ export default function Gallery() {
   return (
     <section sx={{ variant: "section.gallery" }} id="gallery">
       <Container css={{ textAlign: "center" }}>
-        <SectionHeader slogan="Gallery" title="Here Are Our Agents At Work" />
+        <SectionHeader slogan="Agents" title="Here Are Our Agents At Work" />
       </Container>
       <Box sx={styles.carouselWrapper}>
         <Carousel {...carouselParams}>
-          {images.map((item) => (
+          {agents.map((item) => (
             <Box sx={styles.reviewCard} key={item.id}>
               <div className="image">
                 <Image src={item.imageSrc} alt="Picture" />
