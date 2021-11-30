@@ -6,18 +6,34 @@ import { jsx } from "theme-ui";
 
 import img1 from "assets/img1.png";
 import img2 from "assets/img2.png";
+import img3 from "assets/img3.png";
+import img4 from "assets/img4.png";
 import ButtonGroup from "components/button-group";
 
 const agents = [
   {
     id: 1,
     imageSrc: img1,
-    complexName: "complexName",
+    complexName: "Park Square",
+    agentName: "Tebogo Serame",
   },
   {
     id: 2,
     imageSrc: img2,
-    complexName: "complexName",
+    complexName: "Park Square",
+    agentName: "Tebogo Serame",
+  },
+  {
+    id: 1,
+    imageSrc: img3,
+    complexName: "Precinct Luxury Apartments",
+    agentName: "Delight Ndedane",
+  },
+  {
+    id: 2,
+    imageSrc: img4,
+    complexName: "Precinct Luxury Apartments",
+    agentName: "Delight Ndedane",
   },
 ];
 
@@ -71,7 +87,7 @@ export default function Gallery() {
   return (
     <section sx={{ variant: "section.gallery" }} id="gallery">
       <Container css={{ textAlign: "center" }}>
-        <SectionHeader slogan="Agents" title="Here Are Our Agents At Work" />
+        <SectionHeader slogan="Agents" title="Here Are Some Our Agents At Work" />
       </Container>
       <Box sx={styles.carouselWrapper}>
         <Carousel {...carouselParams}>
@@ -82,8 +98,11 @@ export default function Gallery() {
               </div>
               <div className="card-footer">
                 <div className="reviewer-info">
-                  <Heading as="h3" sx={styles.title}>
+                  <Heading as="h3">
                     {item.complexName}
+                  </Heading>
+                  <Heading as="h4" sx={styles.title}>
+                    {item.agentName}
                   </Heading>
                 </div>
               </div>
@@ -196,7 +215,7 @@ const styles = {
     fontSize: [1, 2],
     fontWeight: 700,
     mb: [3, null, null, "22px"],
-    color: "text",
+    color: "secondary",
     lineHeight: 1.6,
   },
   description: {

@@ -5,21 +5,21 @@ import Drawer from 'components/drawer';
 import { IoMdClose, IoMdMenu } from 'react-icons/io';
 import { Link } from 'react-scroll';
 import TGWLogo from 'assets/TGWLogo.png'
-import { FaFacebookF, FaTwitter, FaGithubAlt, FaDribbble, FaInstagram } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 import menuItems from './header.data';
 import Logo from 'components/logo';
 
 const social = [
   {
-    path: '/',
+    path: 'https://www.facebook.com/thegreenwash/',
     icon: <FaFacebookF />,
   },
   {
-    path: '/',
+    path: 'https://twitter.com/thegreenwash',
     icon: <FaTwitter />,
   },
   {
-    path: '/',
+    path: 'https://instagram.com/thegreenwash',
     icon: <FaInstagram />,
   },
 ];
@@ -62,7 +62,7 @@ export default function MobileDrawer() {
            <Box sx={styles.social}>
              {social.map((socialItem, i) => (
                <Box as='span' key={i} sx={styles.social.icon}>
-                 <Link to={socialItem.path}>{socialItem.icon}</Link>
+                 <a href={socialItem.path} style={{color: "black"}}>{socialItem.icon}</a>
                </Box>
              ))}
            </Box>
