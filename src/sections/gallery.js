@@ -4,84 +4,8 @@ import SectionHeader from "components/section-header";
 import Carousel from "react-multi-carousel";
 import { jsx } from "theme-ui";
 
-import img1 from "assets/img1.png";
-import img2 from "assets/img2.png";
-import img3 from "assets/img3.png";
-import img4 from "assets/img4.png";
-import ButtonGroup from "components/button-group";
-
-const agents = [
-  {
-    id: 1,
-    imageSrc: img1,
-    complexName: "Park Square",
-    agentName: "Tebogo Serame",
-  },
-  {
-    id: 2,
-    imageSrc: img2,
-    complexName: "Park Square",
-    agentName: "Tebogo Serame",
-  },
-  {
-    id: 1,
-    imageSrc: img3,
-    complexName: "Precinct Luxury Apartments",
-    agentName: "Delight Ndedane",
-  },
-  {
-    id: 2,
-    imageSrc: img4,
-    complexName: "Precinct Luxury Apartments",
-    agentName: "Delight Ndedane",
-  },
-];
-
-const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1619 },
-      items: 4,
-      slidesToSlide: 4, // optional, default to 1.
-    },
-    laptop: {
-      breakpoint: { max: 1619, min: 1024 },
-      items: 3,
-      slidesToSlide: 3, // optional, default to 1.
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 640 },
-      items: 2,
-      slidesToSlide: 2, // optional, default to 1.
-    },
-    mobile: {
-      breakpoint: { max: 639, min: 0 },
-      items: 1,
-      slidesToSlide: 1, // optional, default to 1.
-    },
-  };
-
-const carouselParams = {
-  additionalTransfrom: 0,
-  arrows: false,
-  autoPlaySpeed: 3000,
-  centerMode: false,
-  className: "",
-  containerClass: "carousel-container",
-  customButtonGroup: <ButtonGroup />,
-  dotListClass: "",
-  draggable: true,
-  focusOnSelect: false,
-  infinite: true,
-  itemClass: "",
-  keyBoardControl: true,
-  minimumTouchDrag: 80,
-  renderButtonGroupOutside: true,
-  renderDotsOutside: false,
-  responsive: responsive,
-  showDots: false,
-  sliderClass: "",
-  slidesToSlide: 1,
-};
+import agentData from "data/agent.data";
+import carouselParams from "data/carouselParams";
 
 export default function Gallery() {
   return (
@@ -91,7 +15,7 @@ export default function Gallery() {
       </Container>
       <Box sx={styles.carouselWrapper}>
         <Carousel {...carouselParams}>
-          {agents.map((item) => (
+          {agentData.map((item) => (
             <Box sx={styles.reviewCard} key={item.id}>
               <div className="image">
                 <Image src={item.imageSrc} alt="Picture" />

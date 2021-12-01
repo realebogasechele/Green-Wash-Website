@@ -73,7 +73,7 @@ const styles = {
       mb: 1,
     },
     designation: {
-      fontSize: ['14px', null, null, 2],
+      fontSize: ['14px', null, null, 1],
       fontWeight: 'body',
       lineHeight: 'heading',
       color: 'text',

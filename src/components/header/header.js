@@ -4,7 +4,6 @@ import { keyframes } from '@emotion/core';
 import { Link } from 'react-scroll';
 import Logo from 'components/logo';
 import TGWLogo from 'assets/TGWLogo.png';
-import LogoDark from 'assets/logo.svg';
 import MobileDrawer from './mobile-drawer';
 import menuItems from './header.data';
 
@@ -28,9 +27,9 @@ export default function Header({ className }) {
               </Link>
             ))}
           </Flex>
-          <Button className='donate__btn' variant='secondary' aria-label='Download App'>
+          {/* <Button className='download__btn' variant='secondary' aria-label='Download App' href="">
             Download App
-          </Button>
+          </Button> */}
           <MobileDrawer />
 
         </Container>
@@ -63,7 +62,7 @@ const styles = {
     backgroundColor: 'transparent',
     transition: 'all 0.4s ease',
     animation: `${positionAnim} 0.4s ease`,
-    '.donate__btn': {
+    '.download__btn': {
       flexShrink: 0,
       mr: [15, 20, null, null, 0],
       ml: ['auto', null, null, null, 0],
