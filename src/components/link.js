@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx, NavLink as MenuLink } from "theme-ui";
 import { Link as A } from "react-scroll";
-import NextLink from "next/link";
 
 export function NavLink({ path, label, children, ...rest }) {
   return <h1>NavLink</h1>;
